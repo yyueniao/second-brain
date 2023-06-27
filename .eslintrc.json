@@ -6,7 +6,8 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
@@ -24,8 +25,12 @@
     "@typescript-eslint/no-unsafe-call": "error",
     "@typescript-eslint/no-unsafe-return": "error",
     "@typescript-eslint/no-unsafe-assignment": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "react/react-in-jsx-scope": "off"
+    "@typescript-eslint/no-explicit-any": "error"
   },
-  "ignorePatterns": ["node_modules/", "dist/", "next.config.js"]
+  "ignorePatterns": ["node_modules/", "dist/", "next.config.js"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
