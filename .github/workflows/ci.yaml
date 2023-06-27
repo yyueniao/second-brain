@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: DISABLE_ESLINT_PLUGIN=true npm run build
+
+  prettier-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - name: Install Dependencies
+        run: npm install
+      - name: Prettier Check
+        run: npx prettier --check .
+
+  eslint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.2.0
+      - name: Install Dependencies
+        run: npm install
+      - name: ESLint Check
+        run: npx eslint .
